@@ -1,0 +1,346 @@
+<title>Michelle Guimarães Beauty</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400&family=Jost:wght@300;400;500&family=DM+Mono:wght@400&display=swap">
+<style>
+/* Layout: página de vendas em faixas largas; a "fita de mapping" dos cílios atravessa a página como assinatura */
+:root{
+  --bg:#FBF8F6;
+  --surface:#F3ECE8;
+  --ink:#2A1F24;
+  --muted:#6E5F64;
+  --gold:#9C7A45;
+  --gold-soft:#E8DCC8;
+  --line:#E2D6D2;
+  --on-dark:#FBF8F6;
+  --dark:#241A1F;
+  --display:"Bodoni Moda", "Didot", Georgia, serif;
+  --body:"Jost", "Helvetica Neue", Arial, sans-serif;
+  --mono:"DM Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#18120F; --surface:#221A19; --ink:#F2EAE6; --muted:#B5A6A8; --gold:#D2B07A; --gold-soft:#3A2F24; --line:#3A2E2E; --on-dark:#F2EAE6; --dark:#0F0B0A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#18120F; --surface:#221A19; --ink:#F2EAE6; --muted:#B5A6A8; --gold:#D2B07A; --gold-soft:#3A2F24; --line:#3A2E2E; --on-dark:#F2EAE6; --dark:#0F0B0A; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.65}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(56px,9vw,104px)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.6rem,6.4vw,4.8rem);letter-spacing:-.01em}
+h1 em,h2 em{font-style:italic;color:var(--gold)}
+h2{font-size:clamp(2rem,4vw,3rem)}
+h3{font-size:1.35rem}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.lead{color:var(--muted);max-width:56ch;font-size:1.08rem}
+.note{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted);border:1px dashed var(--line);padding:4px 8px;display:inline-block}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-weight:500;font-size:.95rem;letter-spacing:.04em;text-decoration:none;padding:16px 28px;border-radius:2px;transition:transform .2s,background .2s}
+.btn-gold{background:var(--gold);color:var(--bg)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--bg)}
+.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* nav */
+nav{border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:18px}
+.brand{font-family:var(--display);font-size:1.25rem}
+.brand small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+nav a.btn{padding:10px 18px;font-size:.85rem}
+
+/* hero */
+.hero{padding-block:clamp(48px,7vw,88px) 0}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:end}
+.hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0;padding-bottom:40px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.portrait{aspect-ratio:4/5;max-width:100%;background:linear-gradient(160deg,var(--surface),var(--gold-soft));position:relative;display:flex;align-items:flex-end;padding:20px}
+.portrait::after{content:"";position:absolute;inset:14px;border:1px solid var(--gold);opacity:.5;pointer-events:none}
+.portrait span{position:relative;z-index:1}
+.portrait::after{z-index:2}
+.portrait.has-img{padding:0;overflow:hidden}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.portrait .tag{position:absolute;left:24px;bottom:24px;z-index:3;background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:8px 12px}
+.about-grid{grid-template-columns:1fr!important;max-width:820px}
+.about-id{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);padding:5px;background:var(--bg);flex:none}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid var(--gold);flex:none}
+
+/* mapping tape */
+.tape{background:var(--dark);color:var(--on-dark);overflow:hidden}
+.tape .wrap{display:flex;align-items:center;gap:clamp(12px,3vw,40px);padding-block:22px;flex-wrap:wrap;justify-content:space-between}
+.tape-label{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+.map{display:flex;gap:clamp(6px,1.6vw,18px);font-family:var(--mono);font-size:clamp(.85rem,1.8vw,1.05rem);align-items:flex-end}
+.map i{font-style:normal;display:flex;flex-direction:column;align-items:center;gap:6px}
+.map i::before{content:"";width:1px;background:var(--gold);display:block}
+.map i:nth-child(1)::before{height:14px}.map i:nth-child(2)::before{height:18px}.map i:nth-child(3)::before{height:22px}
+.map i:nth-child(4)::before{height:26px}.map i:nth-child(5)::before{height:26px}.map i:nth-child(6)::before{height:22px}.map i:nth-child(7)::before{height:18px}
+
+/* para quem */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px)}
+.two > *{min-width:0}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.checks li{display:grid;grid-template-columns:28px 1fr;gap:12px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.checks li::before{content:"✦";color:var(--gold);font-size:.9rem;padding-top:4px}
+
+/* conteúdo */
+.modules{background:var(--surface)}
+.mod-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.mod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.mod{background:var(--bg);padding:28px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.mod .eyebrow{color:var(--muted)}
+.mod p{color:var(--muted);font-size:.95rem}
+.includes{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
+.chip{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;border:1px solid var(--gold);color:var(--ink);padding:8px 14px;border-radius:40px}
+
+/* turmas */
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px;margin-top:40px}
+.ph{background:linear-gradient(150deg,var(--surface),var(--gold-soft));display:flex;align-items:flex-end;padding:14px;min-width:0}
+.ph:first-child{grid-row:span 2}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.quote{border-top:1px solid var(--gold);padding-top:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.quote p{font-family:var(--display);font-style:italic;font-size:1.15rem;line-height:1.45}
+.quote cite{font-style:normal;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;color:var(--muted)}
+
+/* sobre */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px);align-items:center}
+.about-grid > *{min-width:0}
+.about-copy{display:flex;flex-direction:column;gap:20px}
+
+/* cliente final */
+.clients{background:var(--dark);color:var(--on-dark)}
+.clients .lead{color:var(--on-dark);opacity:.75}
+.clients .btn-line{border-color:var(--on-dark);color:var(--on-dark)}
+.clients .btn-line:hover{background:var(--on-dark);color:var(--dark)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.svc{border:1px solid rgba(255,255,255,.14);padding:24px;display:flex;flex-direction:column;gap:8px}
+.svc p{opacity:.7;font-size:.95rem}
+
+/* faq */
+.faq{display:grid;gap:0;margin-top:32px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line);padding-block:20px}
+summary{cursor:pointer;font-family:var(--display);font-size:1.2rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-family:var(--body)}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:12px;max-width:62ch}
+
+/* cta final */
+.final{text-align:left}
+.final-box{border:1px solid var(--gold);padding:clamp(28px,5vw,64px);display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.final-box > div{display:flex;flex-direction:column;gap:14px;min-width:0;max-width:60ch}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:32px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:.88rem;color:var(--muted)}
+
+@media (max-width:860px){
+  .hero-grid,.two,.about-grid{grid-template-columns:1fr}
+  .hero-copy{padding-bottom:0}
+  .portrait{max-height:440px;width:100%}
+  .mod-grid,.quotes,.services{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:180px 140px 140px}
+  .ph:first-child{grid-column:span 2;grid-row:auto}
+}
+/* ===== animações ===== */
+@keyframes rise{from{transform:translateY(22px);opacity:0}to{transform:none;opacity:1}}
+@keyframes frame{from{clip-path:inset(0 100% 100% 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes glow{0%,100%{opacity:.35}50%{opacity:.8}}
+@keyframes sheen{from{background-position:-160% 0}to{background-position:260% 0}}
+.hero-copy>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy>*:nth-child(2){animation-delay:.12s}
+.hero-copy>*:nth-child(3){animation-delay:.24s}
+.hero-copy>*:nth-child(4){animation-delay:.36s}
+.hero .portrait{animation:rise 1.1s .2s cubic-bezier(.2,.7,.2,1) both}
+.hero .portrait::after{animation:frame 1.4s .6s cubic-bezier(.6,0,.2,1) both}
+.map i::before{transform-origin:bottom;animation:grow .7s cubic-bezier(.2,.7,.2,1) both}
+.map i:nth-child(1)::before{animation-delay:.5s}.map i:nth-child(2)::before{animation-delay:.58s}.map i:nth-child(3)::before{animation-delay:.66s}.map i:nth-child(4)::before{animation-delay:.74s}.map i:nth-child(5)::before{animation-delay:.82s}.map i:nth-child(6)::before{animation-delay:.9s}.map i:nth-child(7)::before{animation-delay:.98s}
+.tape-label:last-child{animation:glow 3.2s ease-in-out infinite}
+.btn-gold{background-image:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);background-size:60% 100%;background-repeat:no-repeat;background-position:-160% 0}
+.btn-gold:hover{animation:sheen .9s ease}
+.lift{transform:translateY(28px);transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.lift.in{transform:none}
+.ph,.mod,.svc{transition:transform .5s cubic-bezier(.2,.7,.2,1),background .3s}
+.ph:hover{transform:scale(1.02)}
+.mod:hover{background:var(--surface)}
+.svc:hover{transform:translateY(-4px)}
+.chip{transition:background .3s,color .3s}
+.chip:hover{background:var(--gold);color:var(--bg)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.lift{transform:none}}
+</style>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><img src="michelle.jpg" alt=""><div>Michelle Guimarães<small>Educadora Beauty · Uberlândia</small></div></div>
+    <a class="btn btn-gold" href="#vagas">Quero minha vaga</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Formação Lash Premium</span>
+      <h1>Saia do curso <em>pronta</em> para atender e cobrar o que vale.</h1>
+      <p class="lead">Eu formo profissionais seguras, valorizadas e preparadas para o mercado. Turmas pequenas, prática em modelo real e acompanhamento depois do curso.</p>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#vagas">Garantir minha vaga</a>
+        <a class="btn btn-line" href="#conteudo">Ver o que você aprende</a>
+      </div>
+    </div>
+    <div class="portrait has-img"><img src="formatura.jpg" alt="Michelle Guimarães entregando o certificado da Formação Lash Premium a uma aluna"><span class="tag">Entrega de certificado</span></div>
+  </div>
+</header>
+
+<div class="tape" aria-label="Exemplo de mapping de cílios">
+  <div class="wrap">
+    <span class="tape-label">Mapping · curvatura C</span>
+    <div class="map"><i>9</i><i>10</i><i>11</i><i>12</i><i>12</i><i>11</i><i>10</i></div>
+    <span class="tape-label">Você aprende a ler cada olhar</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap two">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <span class="eyebrow">Para quem é</span>
+      <h2>Para quem quer viver de cílios <em>com segurança</em>.</h2>
+      <p class="lead">Do zero ou já atendendo, a formação mostra o caminho completo: técnica, biossegurança e como montar uma agenda que se paga.</p>
+    </div>
+    <ul class="checks">
+      <li><span><strong>Nunca trabalhou com cílios</strong> e quer começar do jeito certo, sem vícios de técnica.</span></li>
+      <li><span><strong>Já atende</strong>, mas sofre com retenção baixa, alergia ou cliente que não volta.</span></li>
+      <li><span><strong>Quer cobrar mais</strong> e se posicionar como profissional premium na sua cidade.</span></li>
+      <li><span><strong>Precisa de certificado</strong> e de alguém para tirar dúvidas depois do curso.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="modules" id="conteudo">
+  <div class="wrap">
+    <div class="mod-head">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <span class="eyebrow">O que você aprende</span>
+        <h2>Conteúdo da formação</h2>
+      </div>
+      <span class="note">sugestão de módulos · ajustar com a grade real</span>
+    </div>
+    <div class="mod-grid">
+      <div class="mod"><span class="eyebrow">Base</span><h3>Anatomia e biossegurança</h3><p>Ciclo do fio, saúde ocular, higienização e como evitar reações alérgicas.</p></div>
+      <div class="mod"><span class="eyebrow">Técnica</span><h3>Isolamento e colagem</h3><p>Isolamento limpo, quantidade de cola e tempo de secagem para retenção de verdade.</p></div>
+      <div class="mod"><span class="eyebrow">Técnica</span><h3>Mapping e visagismo</h3><p>Curvaturas, espessuras e tamanhos certos para cada formato de olho.</p></div>
+      <div class="mod"><span class="eyebrow">Estilos</span><h3>Fio a fio e volumes</h3><p>Clássico, volume brasileiro e efeitos mais procurados no salão.</p></div>
+      <div class="mod"><span class="eyebrow">Prática</span><h3>Atendimento em modelo</h3><p>Aplicação completa em modelo real, com correção ao seu lado.</p></div>
+      <div class="mod"><span class="eyebrow">Negócio</span><h3>Preço, fotos e clientela</h3><p>Como precificar, fotografar o resultado e encher a agenda pelo Instagram.</p></div>
+    </div>
+    <div class="includes">
+      <span class="chip">Apostila impressa</span>
+      <span class="chip">Certificado</span>
+      <span class="chip">Prática em modelo</span>
+      <span class="chip">Suporte pós-curso</span>
+      <span class="chip">Turmas reduzidas</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span class="eyebrow">Turmas</span>
+      <h2>Quem já passou pela <em>Formação</em></h2>
+    </div>
+    <div class="gallery">
+      <div class="ph"><span class="note">foto da turma</span></div>
+      <div class="ph"><span class="note">aluna em prática</span></div>
+      <div class="ph"><span class="note">certificado</span></div>
+      <div class="ph"><span class="note">resultado de aluna</span></div>
+      <div class="ph"><span class="note">resultado de aluna</span></div>
+    </div>
+    <div class="quotes">
+      <div class="quote"><p>Depoimento real de uma aluna entra aqui, contando como estava antes e o que mudou depois do curso.</p><cite>Nome da aluna · turma 2025</cite></div>
+      <div class="quote"><p>Espaço para um segundo depoimento, de preferência de quem começou do zero e hoje já atende.</p><cite>Nome da aluna · turma 2025</cite></div>
+      <div class="quote"><p>Terceiro depoimento, falando do suporte depois do curso ou do retorno financeiro.</p><cite>Nome da aluna · turma 2025</cite></div>
+    </div>
+  </div>
+</section>
+
+<section class="modules">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <span class="eyebrow">Sobre</span>
+      <div class="about-id"><img class="avatar" src="michelle.jpg" alt="Michelle Guimarães" loading="lazy"><h2>Michelle Guimarães</h2></div>
+      <p class="lead">Lash designer e educadora em Uberlândia, criadora da Formação Lash Premium. Atende no studio da Rua Timbiras e forma novas profissionais em turmas pequenas, com foco em técnica bem feita e em sair do curso pronta para trabalhar.</p>
+      <span class="note">completar com tempo de mercado e nº de alunas formadas</span>
+    </div>
+  </div>
+</section>
+
+<section class="clients">
+  <div class="wrap">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span class="eyebrow">Atendimento</span>
+      <h2>Quer fazer seus cílios?</h2>
+      <p class="lead">Além das formações, a Michelle atende no studio. Os horários são combinados direto pelo WhatsApp.</p>
+    </div>
+    <div class="services">
+      <div class="svc"><h3>Extensão de cílios</h3><p>Fio a fio e volumes, com mapping feito para o seu olhar.</p></div>
+      <div class="svc"><h3>Manutenção</h3><p>Reposição dos fios para manter o efeito cheio.</p></div>
+      <div class="svc"><h3>Lábios</h3><p>Procedimentos para lábios com acabamento natural.</p></div>
+    </div>
+    <div style="margin-top:36px"><a class="btn btn-line" href="#vagas">Chamar no WhatsApp</a></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap" style="max-width:860px">
+    <span class="eyebrow">Dúvidas</span>
+    <h2 style="margin-top:16px">Perguntas frequentes</h2>
+    <div class="faq">
+      <details><summary>Preciso ter experiência?</summary><p>Não. A formação começa do básico e vai até o atendimento completo em modelo.</p></details>
+      <details><summary>O material está incluso?</summary><p>A apostila e o certificado estão inclusos. Confirme com a Michelle o que vem no kit de prática.</p></details>
+      <details><summary>Posso parcelar?</summary><p>Fale com a Michelle pelo WhatsApp para ver as formas de pagamento da próxima turma.</p></details>
+      <details><summary>Tenho suporte depois do curso?</summary><p>Sim. Você continua tirando dúvidas depois da formação, para não ficar sozinha nos primeiros atendimentos.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="vagas">
+  <div class="wrap">
+    <div class="final-box">
+      <div>
+        <span class="eyebrow">Próxima turma</span>
+        <h2>As vagas são <em>limitadas</em>.</h2>
+        <p class="lead">Chame no WhatsApp para saber a data da próxima turma e garantir seu lugar.</p>
+      </div>
+      <a class="btn btn-gold" href="#vagas">Garantir minha vaga</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Michelle Guimarães · Educadora Beauty</span>
+    <span>Rua Timbiras, 1055 · Saraiva · Sala 1 · Uberlândia</span>
+    <span>@michelleguimaraes.beauty</span>
+  </div>
+</footer>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+  var els=document.querySelectorAll('section h2, .checks li, .mod, .chip, .ph, .quote, .svc, details, .final-box, .about-grid .portrait');
+  var vh=window.innerHeight;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12});
+  var groups=new Map();
+  els.forEach(function(el){
+    if(el.getBoundingClientRect().top<vh)return;
+    var p=el.parentElement,i=groups.get(p)||0;groups.set(p,i+1);
+    el.style.transitionDelay=Math.min(i,6)*70+'ms';
+    el.classList.add('lift');io.observe(el);
+  });
+})();
+</script>
